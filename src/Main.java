@@ -2,8 +2,8 @@
 public class Main {
     public static void main(String[] args) {
 
-        int masterExercise = 11;
-        String masterInput = "";
+        int masterExercise = 12;
+        String masterInput = "aaaabbbccccc";
         String masterFilter = "";
         switch(masterExercise){
             case 1 -> System.out.println(exercise1(masterInput));
@@ -19,6 +19,7 @@ public class Main {
             case 11 -> System.out.println(exercise11(masterInput));
             case 12 -> System.out.println(exercise12(masterInput));
             case 13 -> System.out.println(exercise13(masterInput));
+            case 14 -> System.out.println(exercise14(masterInput));
 
         }
 
@@ -49,7 +50,7 @@ public class Main {
 
     static String exercise4(String input){
 
-        String bufferString1 = "";
+        String bufferString1;
         StringBuilder bufferString2 = new StringBuilder();
 
         for (int i=0; i<input.length(); i++)
@@ -105,7 +106,7 @@ public class Main {
 
     static String exercise7(String input){
 
-        String bufferString1 = "";
+        String bufferString1;
         StringBuilder bufferString2 = new StringBuilder();
 
         for (int i=0; i<input.length(); i++)
@@ -114,7 +115,7 @@ public class Main {
             bufferString2.insert(0, bufferString1);
         }
 
-        return(input + bufferString2.toString());
+        return(input + bufferString2);
     }
 
     static String exercise8(String input){
@@ -192,25 +193,69 @@ public class Main {
     }
 
     static String exercise11(String input){
-        StringBuilder bufferString = new StringBuilder();
-        int multiplier = 1;
-        bufferString.append(input.substring(0, input.length() - 2));
+        String bufferString;
+        int multiplier;
+        bufferString = input.substring(0, input.length() - 2);
         multiplier = Integer.parseInt(input.substring(input.length() - 1));
-        return(bufferString.toString().repeat(multiplier));
+        return(bufferString.repeat(multiplier));
     }
 
     static String exercise12(String input){
 
 
-
-        return(input);
+        char[] s =input.toCharArray();
+        int k=0,max=0;
+        String[] a =new String[s.length];
+        for(int i=0;i<s.length;i++){
+            String r="";
+            if(s[i]!=' '){
+                r+=s[i];
+                for(int j=i+1;j<s.length;j++){
+                    char e=s[j];
+                    if(Character.toLowerCase(s[i])==Character.toLowerCase(s[j])){
+                        r+=e;
+                        s[j]=' ';
+                    }else{
+                        break;
+                    }
+                }
+                a[k++]=r;
+            }
+        }
+        for(int i=0;i<k;i++){
+            if(a[i].length()>max){
+                max=a[i].length();
+            }
+        }
+        int p=0;
+        for(int i=0;i<k;i++){
+            if(a[i].length()==max && a[i].length()>1){
+                System.out.print(a[i]+" ");
+                p=1;
+            }
+        }
+        if(p==0) System.out.print("-1");
+        return input;
     }
 
     static String exercise13(String input){
-        return(input);
+
+        String bufferString = input;
+
+        bufferString = bufferString.toLowerCase().replace("do", "don't");
+        bufferString = bufferString.toLowerCase().replace("do not", "do");
+        bufferString = bufferString.toLowerCase().replace("can", "can't");
+        bufferString = bufferString.toLowerCase().replace("can not", "can");
+
+        return(bufferString);
+
     }
 
+    static String exercise14(String input){
 
+
+        return("I don' care");
+    }
 
 
 
