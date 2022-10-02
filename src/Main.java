@@ -3,8 +3,8 @@ public class Main {
     public static void main(String[] args) {
 
         int masterExercise = 11;
-        String masterInput = "Hello*2";
-        String masterFilter = "ng";
+        String masterInput = "";
+        String masterFilter = "";
         switch(masterExercise){
             case 1 -> System.out.println(exercise1(masterInput));
             case 2 -> System.out.println(exercise2(masterInput));
